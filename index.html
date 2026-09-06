@@ -4,41 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#121212" />
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <meta name="description" content="Uprijon — The Dreamer Kids." />
     <title>Uprijon — The Dreamer Kids</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about.css" />
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="#home" aria-label="Uprijon home">UPRIJON</a>
       <nav>
-        <a href="#home">Home</a><a href="#about">About</a><a href="https://ariamarvelous.blogspot.com/2015/04/marvelous-class-c-period-10-maret-2015.html" target="_blank" rel="noopener noreferrer">Blog</a><a href="#event">Event</a><a href="#nft">NFT</a><a href="#artwork">Artwork</a><a href="#shop">Shop</a>
+        <a href="#home">Home</a><a href="about.html">About</a><a href="https://ariamarvelous.blogspot.com/2015/04/marvelous-class-c-period-10-maret-2015.html" target="_blank" rel="noopener noreferrer">Blog</a><a href="events.html">Events</a><a href="nft.html">NFT</a><div class="nav-dropdown"><a class="nav-dropdown-trigger" href="manual-artwork.html">Artwork</a><div class="nav-submenu" aria-label="Artwork pages"><a href="manual-artwork.html">Manual Artwork</a><a href="digital-artwork.html">Digital Artwork</a></div></div><a href="#shop">Shop</a>
       </nav>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
     </header>
 
     <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" hidden>
-      <a href="#home">Home</a><a href="#about">About</a><a href="https://ariamarvelous.blogspot.com/2015/04/marvelous-class-c-period-10-maret-2015.html" target="_blank" rel="noopener noreferrer">Blog</a><a href="#event">Event</a><a href="#nft">NFT</a><a href="#artwork">Artwork</a><a href="#shop">Shop</a>
+      <a href="#home">Home</a><a href="about.html">About</a><a href="https://ariamarvelous.blogspot.com/2015/04/marvelous-class-c-period-10-maret-2015.html" target="_blank" rel="noopener noreferrer">Blog</a><a href="events.html">Events</a><a href="nft.html">NFT</a><a href="manual-artwork.html">Manual Artwork</a><a href="digital-artwork.html">Digital Artwork</a><a href="#shop">Shop</a>
     </nav>
 
     <main id="main">
       <article id="home" class="visual-page" aria-labelledby="page-title">
         <h1 id="page-title" class="sr-only">Uprijon: The Dreamer Kids</h1>
-        <img class="artwork" src="assets/upriweb-artwork-only.png?v=7" width="1920" height="5397" alt="Illustrated Uprijon artwork." />
+        <img class="artwork" src="assets/upriweb-artwork-only.png?v=9" width="1920" height="5397" alt="Illustrated Uprijon artwork." />
+
+
+
+
+
+
+        <div class="home-hero">
+          <img class="responsive-hero-art" src="assets/home-hero.webp" width="1920" height="1078" alt="Uprijon's colorful illustrated world" fetchpriority="high">
         <img class="hero-flower flower-left" src="assets/flower-left.png" alt="" aria-hidden="true" />
         <img class="hero-flower flower-right" src="assets/flower-right.png" alt="" aria-hidden="true" />
-        <div class="story-monster" aria-hidden="true">
-          <img class="story-monster-core" src="assets/story-monster-core.png" alt="" />
-          <img class="story-monster-sparkle" src="assets/story-monster-sparkle.png" alt="" />
-          <img class="story-monster-dot" src="assets/story-monster-dot.png" alt="" />
-          <img class="story-monster-smoke" src="assets/story-monster-smoke.png" alt="" />
-        </div>
-
         <div class="copy hero-copy">
           <p class="hero-kicker">THE DREAMER KIDS</p>
-          <button class="button hero-button" type="button" data-message="Music preview is ready to be connected.">Play with music</button>
+          <button id="music-toggle-button" class="button hero-button" type="button" aria-controls="hiphop-player" aria-expanded="false" aria-pressed="false">Play with music</button>
         </div>
+        </div>
+
+        <aside id="hiphop-player" class="music-player" aria-label="Uprijon original hip-hop playlist" hidden>
+          <div class="music-player-header">
+            <div><span>UPRIJON RADIO</span><strong>Original Hip-Hop Beats</strong></div>
+            <button class="music-close" type="button" aria-label="Close music player">×</button>
+          </div>
+          <div class="music-now-playing">
+            <div class="music-meter" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <div><span>Now playing</span><strong data-now-playing>Midnight Boom Bap</strong></div>
+          </div>
+          <div class="music-track-list" aria-label="Choose a beat">
+            <button class="music-track is-active" type="button" data-beat="0"><span>01</span><strong>Midnight Boom Bap</strong><small>88 BPM</small></button>
+            <button class="music-track" type="button" data-beat="1"><span>02</span><strong>Neon Lo-Fi</strong><small>78 BPM</small></button>
+            <button class="music-track" type="button" data-beat="2"><span>03</span><strong>Upri Bounce</strong><small>96 BPM</small></button>
+          </div>
+          <div class="music-controls">
+            <button class="music-play-pause" type="button">Pause</button>
+            <label><span>Volume</span><input class="music-volume" type="range" min="0" max="100" value="62" aria-label="Music volume"></label>
+          </div>
+          <p class="music-note">Original instrumental loops generated by this website.</p>
+        </aside>
 
         <section id="event" class="exhibition-ribbons" aria-label="Exhibition">
           <div class="ribbon ribbon-back"><div class="ribbon-track"><div class="ribbon-content"><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b></div><div class="ribbon-content" aria-hidden="true"><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b><span>EXHIBITION</span><b>✳</b></div></div></div>
@@ -47,65 +74,89 @@
         </section>
 
         <section class="art-cards" aria-label="Exhibition carousel" aria-roledescription="carousel">
-          <button class="carousel-control carousel-prev" type="button" aria-label="Pameran sebelumnya"><span aria-hidden="true">&#8592;</span></button>
+          <button class="carousel-control carousel-prev" type="button" aria-label="Previous exhibition"><span aria-hidden="true">&#8592;</span></button>
           <div class="art-card-viewport">
             <div class="art-card-track">
-              <a class="art-card" href="#artwork"><img src="assets/art-card-1.png" alt="Art Moment character artwork" /><span class="art-card-copy"><strong>ART MOMENT</strong><span>Uprijon hadir di Art Moment dengan karya karakter penuh warna, energi, dan cerita dari dunia imajinasi.</span></span></a>
-              <a class="art-card" href="#artwork"><img src="assets/art-card-2.png" alt="Kotak Art Collective character artwork" /><span class="art-card-copy"><strong>KOTAK ART<br />COLLECTIVE</strong><span>Kolaborasi bersama Kotak Art Collective yang merayakan pertemuan karya baru, komunitas, dan ekspresi bebas.</span></span></a>
-              <a class="art-card" href="#artwork"><img src="assets/art-card-3.png" alt="Bondanese Art Fair character artwork" /><span class="art-card-copy"><strong>BONDANESE<br />ART FAIR</strong><span>Semesta Uprijon menuju Australia untuk Bondanese Art Fair, membawa visual ceria ke panggung internasional.</span></span></a>
-              <a class="art-card" href="#artwork"><img src="assets/art-card-2.png" alt="Creative Ground character artwork" /><span class="art-card-copy"><strong>CREATIVE<br />GROUND</strong><span>Instalasi karakter yang mengajak pengunjung bermain, menemukan warna baru, dan ikut berimajinasi.</span></span></a>
-              <a class="art-card" href="#artwork"><img src="assets/art-card-1.png" alt="Jakarta Art Week character artwork" /><span class="art-card-copy"><strong>JAKARTA<br />ART WEEK</strong><span>Koleksi pilihan Uprijon hadir untuk merangkum rasa ingin tahu, warna, dan momen yang hangat.</span></span></a>
-              <a class="art-card" href="#artwork"><img src="assets/art-card-2.png" alt="Dreamer's Market character artwork" /><span class="art-card-copy"><strong>DREAMER'S<br />MARKET</strong><span>Ruang untuk karya baru, kolektor, dan komunitas kreatif yang tumbuh dari mimpi bersama.</span></span></a>
+              <a class="art-card" href="event-detail.html?event=art-1-community-program-2024"><img src="assets/events/art-1-community-program-2024/02.jpg" alt="Art 1 Community Program 2024" /><span class="art-card-copy"><strong>ART 1 COMMUNITY<br />PROGRAM</strong><span>Art, artists, and visitors came together through the 2024 Art 1 community program.</span></span></a>
+              <a class="art-card" href="event-detail.html?event=art-moment-august-2024"><img src="assets/events/art-moment-august-2024/01.jpg" alt="Art Moment August 2024" /><span class="art-card-copy"><strong>ART MOMENT<br />AUGUST 2024</strong><span>A circular installation brought Uprijon's colorful universe into the exhibition space.</span></span></a>
+              <a class="art-card" href="event-detail.html?event=art-moment-june-2025"><img src="assets/events/art-moment-june-2025/01.jpg" alt="Art Moment June 2025" /><span class="art-card-copy"><strong>ART MOMENT<br />JUNE 2025</strong><span>New work explored attention, curiosity, and the small details we often miss.</span></span></a>
+              <a class="art-card" href="event-detail.html?event=artlife-june-2024"><img src="assets/events/artlife-june-2024/01.jpg" alt="Artlife June 2024" /><span class="art-card-copy"><strong>ARTLIFE<br />JUNE 2024</strong><span>Uprijon shared stories of music, friendship, and the energy of everyday life.</span></span></a>
+              <a class="art-card" href="event-detail.html?event=artsub-2025"><img src="assets/events/artsub-2025/01.jpg" alt="Artsub 2025" /><span class="art-card-copy"><strong>ARTSUB<br />2025</strong><span>Journey became a colorful record of movement, change, and imagination.</span></span></a>
+              <a class="art-card" href="event-detail.html?event=inc-art-bodensee-november-2025"><img src="assets/events/inc-art-bodensee-november-2025/02.jpg" alt="Inc Art Bodensee November 2025" /><span class="art-card-copy"><strong>INC ART BODENSEE<br />NOVEMBER 2025</strong><span>Uprijon's characters met an international audience in a new exhibition setting.</span></span></a>
+              <a class="art-card" href="event-detail.html?event=pestapora-september-2024"><img src="assets/events/pestapora-september-2024/03.jpg" alt="Pestapora September 2024" /><span class="art-card-copy"><strong>PESTAPORA<br />SEPTEMBER 2024</strong><span>Live painting moved with the music, crowds, and rhythm of the festival.</span></span></a>
             </div>
           </div>
-          <button class="carousel-control carousel-next" type="button" aria-label="Pameran berikutnya"><span aria-hidden="true">&#8594;</span></button>
+          <button class="carousel-control carousel-next" type="button" aria-label="Next exhibition"><span aria-hidden="true">&#8594;</span></button>
         </section>
 
+        <div class="home-statement">
+          <img class="statement-paper statement-paper-top" src="assets/statement-paper-top.webp" alt="" aria-hidden="true" loading="lazy">
+        <div class="story-monster" aria-hidden="true">
+          <img class="story-monster-core" src="assets/story-monster-core.png" alt="" />
+          <img class="story-monster-sparkle" src="assets/story-monster-sparkle.png" alt="" />
+          <img class="story-monster-dot" src="assets/story-monster-dot.png" alt="" />
+          <img class="story-monster-smoke" src="assets/story-monster-smoke.png" alt="" />
+        </div>
         <section id="blog" class="copy story-copy" aria-labelledby="story-title">
-          <h2 id="story-title">LOREM IPSUM</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-          <button class="button dark-button" type="button" data-message="This article is ready to be linked.">Lorem ipsum</button>
+          <h2 id="story-title">STATEMENT</h2>
+          <p>Art is a tool to become a calmer, happier person and a way to momentarily escape a reality often driven by greed and the ambition to be invincible in the face of hollow pleasures. Telling stories and capturing beauty through visuals may be the role of an artist, and that is a capacity I take pride in. To me, the ability to share beautiful things is a privilege.</p>
+          <a class="button dark-button" href="about.html">About Me</a>
         </section>
+          <img class="statement-character" src="assets/statement-character.webp" width="746" height="916" alt="" aria-hidden="true" loading="lazy">
+          <img class="statement-paper statement-paper-bottom" src="assets/statement-paper-bottom.webp" alt="" aria-hidden="true" loading="lazy">
+        </div>
 
-        <img class="nft-sticker" src="assets/nft-sticker.png" alt="" aria-hidden="true" />
+        <div class="home-nft">
         <img class="nft-character" src="assets/nft-character.png" alt="" aria-hidden="true" />
         <img class="nft-flower" src="assets/nft-flower.png" alt="" aria-hidden="true" />
         <div class="nft-bubbles" aria-hidden="true">
           <img class="nft-bubble-small" src="assets/nft-bubble-small.png" alt="" />
           <img class="nft-bubble-large" src="assets/nft-bubble-large.png" alt="" />
         </div>
+        <img class="nft-texture-lift" src="assets/nft-texture.webp" alt="" aria-hidden="true" loading="lazy" />
 
         <section id="nft" class="copy nft-copy" aria-labelledby="nft-title">
-          <h2 id="nft-title">LOREM IPSUM DOLOR SIT AMET</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h2 id="nft-title">ENTER THE UPRIJON UNIVERSE</h2>
+          <p>Upriworld is the Genesis of Uprijon in Web3—an artist-built universe connecting digital ownership with fine art, collectibles, exhibitions, interactive experiences, and future animation.</p>
         </section>
 
-        <section class="nft-cards" aria-label="Featured NFT artwork">
+        <section id="artwork" class="nft-cards" aria-label="Featured NFT artwork">
           <a class="nft-card nft-one" href="https://stargaze.zone/m/cosmos1ysxryhdmz7x3v2a9h72n5qe7xg2azgvymac53ra8n2fkrwd9l7qs9c2k0t" target="_blank" rel="noopener noreferrer"><img src="assets/nft-card-upriworld.png" alt="Upriworld NFT" /><span class="nft-card-copy"><b>Upriworld</b><span>Upriworld #1</span><i aria-hidden="true">&#8594;</i></span></a>
           <a class="nft-card nft-two" href="https://stargaze.zone/m/cosmos1ysxryhdmz7x3v2a9h72n5qe7xg2azgvymac53ra8n2fkrwd9l7qs9c2k0t" target="_blank" rel="noopener noreferrer"><img src="assets/nft-card-upridawg.png" alt="Upridawg NFT" /><span class="nft-card-copy"><b>Upridawg</b><span>Upridawg #1</span><i aria-hidden="true">&#8594;</i></span></a>
           <a class="nft-card nft-three" href="https://stargaze.zone/m/uprimutant" target="_blank" rel="noopener noreferrer"><img src="assets/nft-card-uprimutant.png" alt="Uprimutant NFT" /><span class="nft-card-copy"><b>Uprimutant</b><span>Uprimutant #1</span><i aria-hidden="true">&#8594;</i></span></a>
         </section>
 
-        <section id="about" class="copy about-copy" aria-labelledby="about-title">
-          <h2 id="about-title">UPRIJON</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-        </section>
-        <div class="profile-social-links" aria-label="Uprijon social links on profile card">
-          <a class="profile-instagram" href="https://www.instagram.com/uprijon/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"></a>
-          <a class="profile-discord" href="https://discord.com/" target="_blank" rel="noopener noreferrer" aria-label="Discord"></a>
-          <a class="profile-x" href="https://x.com/Uprijon" target="_blank" rel="noopener noreferrer" aria-label="X"></a>
-        </div>
-
-        <footer id="shop" class="copy footer-copy"><p>Copyright 2026</p></footer>
-        <div class="footer-social-links" aria-label="Uprijon social links in footer">
-          <a class="footer-instagram" href="https://www.instagram.com/uprijon/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"></a>
-          <a class="footer-discord" href="https://discord.com/" target="_blank" rel="noopener noreferrer" aria-label="Discord"></a>
-          <a class="footer-x" href="https://x.com/Uprijon" target="_blank" rel="noopener noreferrer" aria-label="X"></a>
         </div>
       </article>
-      <section id="artwork" class="sr-only"><h2>Artwork</h2></section>
+
+      <section id="about" class="home-profile" aria-labelledby="about-title">
+        <img class="home-profile-flower" src="assets/nft-flower.png" alt="" aria-hidden="true" loading="lazy">
+        <div class="home-profile-inner">
+          <div class="home-profile-identity">
+            <div class="home-profile-photo-wrap">
+              <img class="home-profile-photo" src="assets/profile-photo.png" width="202" height="250" alt="Aria Afrizon, known as Uprijon" loading="lazy">
+              <img class="home-profile-star" src="assets/profile-star.png" width="62" height="63" alt="" aria-hidden="true" loading="lazy">
+            </div>
+            <img class="home-profile-logo" src="assets/bio/logo.webp" width="273" height="79" alt="Uprijon" loading="lazy">
+          </div>
+          <div class="home-profile-copy">
+            <h2 id="about-title">UPRIJON</h2>
+            <p>Uprijon, also known as Aria Afrizon, creates playful, character-driven art inspired by cartoons, hip-hop, graffiti, and everyday life. His colorful world invites people to find joy, freedom, and a fresh perspective.</p>
+            <nav class="home-profile-social" aria-label="Uprijon social media">
+              <a href="https://www.instagram.com/uprijon/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="assets/bio/instagram.webp" alt=""></a>
+              <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" aria-label="Discord"><img src="assets/bio/discord.webp" alt=""></a>
+              <a href="https://x.com/Uprijon" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="assets/bio/x.webp" alt=""></a>
+            </nav>
+          </div>
+        </div>
+      </section>
     </main>
+<footer id="shop" class="bio-footer">
+  <div><a href="index.html" aria-label="Uprijon home"><img class="bio-logo" src="assets/bio/logo.webp" width="273" height="79" alt="Uprijon" loading="lazy"></a><p>COPYRIGHT 2026</p></div>
+  <nav aria-label="Social media"><a href="https://www.instagram.com/uprijon/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="assets/bio/instagram.webp" alt=""></a><a href="https://discord.com/" target="_blank" rel="noopener noreferrer" aria-label="Discord"><img src="assets/bio/discord.webp" alt=""></a><a href="https://x.com/Uprijon" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="assets/bio/x.webp" alt=""></a></nav>
+</footer>
     <p class="toast" role="status" aria-live="polite"></p>
     <script src="script.js"></script>
+    <script src="music-player.js"></script>
   </body>
 </html>

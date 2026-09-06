@@ -4,6 +4,10 @@ const siteHeader = document.querySelector('.site-header');
 
 function updateNavigationState() {
   siteHeader?.classList.toggle('is-compact', window.innerWidth > 720 && window.scrollY > 120);
+  if (window.innerWidth > 720 && mobileMenu) {
+    mobileMenu.hidden = true;
+    menuButton?.setAttribute('aria-expanded', 'false');
+  }
 }
 
 window.addEventListener('scroll', updateNavigationState, { passive: true });
@@ -23,16 +27,28 @@ document.querySelectorAll('.mobile-menu a').forEach((link) => {
   });
 });
 
-const stops = { home: 0, about: 0.835, blog: 0.405, event: 0.2, nft: 0.63, artwork: 0.63, shop: 0.96 };
-const visual = document.querySelector('.visual-page');
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && mobileMenu && !mobileMenu.hidden) {
+    mobileMenu.hidden = true;
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.focus();
+  }
+});
+document.addEventListener('click', (event) => {
+  if (mobileMenu && !mobileMenu.hidden && !mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+    mobileMenu.hidden = true;
+    menuButton.setAttribute('aria-expanded', 'false');
+  }
+});
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (event) => {
     const id = link.getAttribute('href').slice(1);
-    if (!(id in stops) || !visual) return;
+    const target = document.getElementById(id);
+    if (!target || id === 'main') return;
     event.preventDefault();
-    const top = visual.getBoundingClientRect().top + window.scrollY + visual.offsetHeight * stops[id];
-    window.scrollTo({ top, behavior: 'smooth' });
+    const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - 80);
+    window.scrollTo({ top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     history.replaceState(null, '', `#${id}`);
   });
 });
@@ -123,13 +139,15 @@ if (exhibitionCarousel) {
     carouselStartX = event.clientX;
     carouselStartOffset = currentCarouselOffset;
     carouselTrack.classList.add('is-dragging');
-    carouselViewport.setPointerCapture?.(event.pointerId);
   });
 
   carouselViewport?.addEventListener('pointermove', (event) => {
     if (!isDraggingCarousel) return;
     const dragDistance = event.clientX - carouselStartX;
-    if (Math.abs(dragDistance) > 4) draggedCarousel = true;
+    if (Math.abs(dragDistance) > 6) {
+      draggedCarousel = true;
+      carouselViewport.setPointerCapture?.(event.pointerId);
+    }
     const furthestOffset = -lastCarouselIndex() * carouselStepSize();
     currentCarouselOffset = Math.max(furthestOffset, Math.min(0, carouselStartOffset + dragDistance));
     carouselTrack.style.transform = `translateX(${currentCarouselOffset}px)`;
@@ -137,6 +155,7 @@ if (exhibitionCarousel) {
 
   carouselViewport?.addEventListener('pointerup', finishCarouselDrag);
   carouselViewport?.addEventListener('pointercancel', finishCarouselDrag);
+  carouselViewport?.addEventListener('lostpointercapture', finishCarouselDrag);
   carouselViewport?.addEventListener('click', (event) => {
     if (!blockCardClick) return;
     event.preventDefault();
